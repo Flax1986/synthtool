@@ -9,7 +9,26 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest            - namn: Installera .NET Core SDK
+  använder: actions/setup-dotnet@v4.0.0
+  med:
+    # Valfri SDK-version(er) att använda. Om den inte tillhandahålls, installerar global.json-versionen när den är tillgänglig. Exempel: 2.2.104, 3.1, 3.1.x, 3.x, 6.0.2xx
+    dotnet-version: # valfritt
+    # Valfri kvalitet på bygget. De möjliga värdena är: daily, signed, validated, preview, ga.
+    dotnet-kvalitet: # valfritt
+    # Valfri global.json-plats, om din global.json inte finns i roten av repo.
+    global-json-fil: # valfritt
+    # Valfri paketkälla för att ställa in autentisering. Kommer att konsultera alla befintliga NuGet.config i roten av repo och tillhandahålla en tillfällig NuGet.config med miljövariabeln NUGET_AUTH_TOKEN som ett ClearTextPassword
+    source-url: # valfritt
+    # Valfri ÄGARE för att använda paket från GitHub Package Registry-organisationer/användare än det nuvarande förvarets ägare. Används endast om en GPR-URL också finns i source-url
+    ägare: # valfritt
+    # Valfri NuGet.config-plats, om din NuGet.config inte finns i roten av repo.
+    config-fil: # valfritt
+    # Valfri ingång för att möjliggöra cachning av NuGet global-packages-mappen
+    cache: # valfritt
+    # Används för att ange sökvägen till en beroendefil: packages.lock.json. Stöder jokertecken eller en lista med filnamn för cachelagring av flera beroenden.
+    cache-beroende-sökväg: # valfritt
+          GH_TOKEN 
 
     steps:
     - uses: actions/checkout@v4
